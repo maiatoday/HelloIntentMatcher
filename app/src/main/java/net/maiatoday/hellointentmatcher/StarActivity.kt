@@ -3,9 +3,8 @@ package net.maiatoday.hellointentmatcher
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_star.*
 
 class StarActivity : AppCompatActivity() {
@@ -34,7 +33,6 @@ class StarActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val color = Color.parseColor(params.colour)
         starLayout.setBackgroundColor(color)
-
 
     }
 }

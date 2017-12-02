@@ -7,18 +7,14 @@ import android.support.test.espresso.intent.matcher.BundleMatchers.hasEntry
 import android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import android.support.test.espresso.intent.matcher.IntentMatchers.hasExtras
 import android.support.test.espresso.intent.rule.IntentsTestRule
-import android.support.test.espresso.matcher.ViewMatchers.assertThat
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.runner.AndroidJUnit4
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.Description
-import org.hamcrest.Matcher
+import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.hamcrest.TypeSafeMatcher
-import org.hamcrest.core.IsInstanceOf
 
 
 /**
@@ -27,7 +23,8 @@ import org.hamcrest.core.IsInstanceOf
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
 
-    @Rule  @JvmField
+    @Rule
+    @JvmField
     var rule = IntentsTestRule(MainActivity::class.java)
 
     @Test
@@ -42,7 +39,7 @@ class MainActivityTest {
         intended(hasComponent(StarActivity::class.java.getName()))
         intended(hasExtras(
                 hasEntry(StarActivity.EXTRA_PARAMS, allOf(IsInstanceOf(ContrivedParams::class.java),
-                equalTo(expectedParams)))))
+                        equalTo(expectedParams)))))
     }
 }
 
