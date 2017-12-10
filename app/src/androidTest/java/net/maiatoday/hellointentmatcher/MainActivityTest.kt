@@ -35,15 +35,17 @@ class MainActivityTest {
         onView(withId(R.id.textTitle)).perform(replaceText("Hello World"), closeSoftKeyboard())
         onView(withId(R.id.rbBlue)).perform(click())
         onView(withId(R.id.starCountBar)).perform(scrubSeekBarAction(2))
+
         //WHEN: the fab is clicked
         onView(withId(R.id.fab)).perform(click())
 
         //THEN: an intent for the StarActivity is launched with intent extra which contains the
         // parameters in the ContrivedParams class that matches the values set on the UI
-        intended(hasComponent(StarActivity::class.java.name))
-        intended(hasExtras(
-                hasEntry(StarActivity.EXTRA_PARAMS, allOf(isA(ContrivedParams::class.java),
-                        equalTo(expectedParams)))))
+        intended(allOf(
+                hasComponent(StarActivity::class.java.name),
+                hasExtras(
+                        hasEntry(StarActivity.EXTRA_PARAMS, allOf(isA(ContrivedParams::class.java),
+                                equalTo(expectedParams))))))
     }
 }
 
