@@ -21,7 +21,7 @@ class StarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_star)
-        var params = intent.extras.getParcelable<ContrivedParams>(EXTRA_PARAMS)
+        val params = intent.extras.getParcelable<ContrivedParams>(EXTRA_PARAMS)
         requireNotNull(params) { "no params provided in Intent extras" }
         if (params.starCount >= 1) imageView1.setImageResource(R.drawable.ic_star_black_24dp)
         if (params.starCount >= 2) imageView2.setImageResource(R.drawable.ic_star_black_24dp)
